@@ -1,0 +1,14 @@
+C:\Users\erics\Documents\Projects\Portfolio\FitnessTrackerWF\FitnessTrackerWF\FTLibrary\bin\Debug\netstandard2.0\FTLibrary.deps.json
+C:\Users\erics\Documents\Projects\Portfolio\FitnessTrackerWF\FitnessTrackerWF\FTLibrary\bin\Debug\netstandard2.0\FTLibrary.dll
+C:\Users\erics\Documents\Projects\Portfolio\FitnessTrackerWF\FitnessTrackerWF\FTLibrary\bin\Debug\netstandard2.0\System.Configuration.dll
+C:\Users\erics\Documents\Projects\Portfolio\FitnessTrackerWF\FitnessTrackerWF\FTLibrary\bin\Debug\netstandard2.0\System.Security.dll
+C:\Users\erics\Documents\Projects\Portfolio\FitnessTrackerWF\FitnessTrackerWF\FTLibrary\bin\Debug\netstandard2.0\System.Configuration.xml
+C:\Users\erics\Documents\Projects\Portfolio\FitnessTrackerWF\FitnessTrackerWF\FTLibrary\bin\Debug\netstandard2.0\System.Security.xml
+C:\Users\erics\Documents\Projects\Portfolio\FitnessTrackerWF\FitnessTrackerWF\FTLibrary\obj\Debug\netstandard2.0\FTLibrary.csprojAssemblyReference.cache
+C:\Users\erics\Documents\Projects\Portfolio\FitnessTrackerWF\FitnessTrackerWF\FTLibrary\obj\Debug\netstandard2.0\FTLibrary.AssemblyInfoInputs.cache
+C:\Users\erics\Documents\Projects\Portfolio\FitnessTrackerWF\FitnessTrackerWF\FTLibrary\obj\Debug\netstandard2.0\FTLibrary.AssemblyInfo.cs
+C:\Users\erics\Documents\Projects\Portfolio\FitnessTrackerWF\FitnessTrackerWF\FTLibrary\obj\Debug\netstandard2.0\FTLibrary.csproj.CopyComplete
+C:\Users\erics\Documents\Projects\Portfolio\FitnessTrackerWF\FitnessTrackerWF\FTLibrary\bin\Debug\netstandard2.0\FTLibrary.pdb
+C:\Users\erics\Documents\Projects\Portfolio\FitnessTrackerWF\FitnessTrackerWF\FTLibrary\obj\Debug\netstandard2.0\FTLibrary.dll
+C:\Users\erics\Documents\Projects\Portfolio\FitnessTrackerWF\FitnessTrackerWF\FTLibrary\obj\Debug\netstandard2.0\FTLibrary.pdb
+C:\Users\erics\Documents\Projects\Portfolio\FitnessTrackerWF\FitnessTrackerWF\FTLibrary\obj\Debug\netstandard2.0\FTLibrary.csproj.CoreCompileInputs.cache

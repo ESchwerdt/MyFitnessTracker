@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ftdbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="C__migrationhistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+    </Key>
+    <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="activity">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="ActivityStart" Type="DateTime" Nullable="false" />
+    <Property Name="ActivityDuration" Type="Time" Nullable="false" />
+    <Property Name="ActivityDistance" Type="Double" Nullable="false" />
+    <Property Name="ActivityNotes" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="User_Id" Type="Int32" />
+    <Property Name="ActivityTypeId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="user" Relationship="Self.FK_Activities_Users_User_Id" FromRole="activities" ToRole="users" />
+  </EntityType>
+  <EntityType Name="activitytype">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ActivityName" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="FirstName" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="EmailAddress" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="Location" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="activities" Relationship="Self.FK_Activities_Users_User_Id" FromRole="users" ToRole="activities" />
+  </EntityType>
+  <Association Name="FK_Activities_Users_User_Id">
+    <End Role="users" Type="Self.user" Multiplicity="0..1" />
+    <End Role="activities" Type="Self.activity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="activities">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C__migrationhistory" EntityType="Self.C__migrationhistory" />
+    <EntitySet Name="activities" EntityType="Self.activity" />
+    <EntitySet Name="activitytypes" EntityType="Self.activitytype" />
+    <EntitySet Name="users" EntityType="Self.user" />
+    <AssociationSet Name="FK_Activities_Users_User_Id" Association="Self.FK_Activities_Users_User_Id">
+      <End Role="users" EntitySet="users" />
+      <End Role="activities" EntitySet="activities" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

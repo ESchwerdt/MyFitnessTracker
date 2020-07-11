@@ -1,0 +1,34 @@
+{
+  "version": 2,
+  "dgSpecHash": "Tl2bElhoU6HKmYujU2vEun7ePLisn7tyfar32KJRu5PHC6K0V8Mds/VFgQrWDsT3LGIG68npqPxMl9U8jPdgnQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\erics\\Documents\\Projects\\Portfolio\\FitnessTrackerWF\\FitnessTrackerWF\\FTLibrary\\FTLibrary.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\erics\\.nuget\\packages\\entityframework\\6.2.0\\entityframework.6.2.0.nupkg.sha512",
+    "C:\\Users\\erics\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\erics\\.nuget\\packages\\mysql.data.entityframework\\8.0.20\\mysql.data.entityframework.8.0.20.nupkg.sha512",
+    "C:\\Users\\erics\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'EntityFramework 6.2.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETStandard,Version=v2.0'. This package may not be fully compatible with your project.",
+      "libraryId": "EntityFramework",
+      "targetGraphs": [
+        ".NETStandard,Version=v2.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'MySql.Data.EntityFramework 8.0.20' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETStandard,Version=v2.0'. This package may not be fully compatible with your project.",
+      "libraryId": "MySql.Data.EntityFramework",
+      "targetGraphs": [
+        ".NETStandard,Version=v2.0"
+      ]
+    }
+  ]
+}

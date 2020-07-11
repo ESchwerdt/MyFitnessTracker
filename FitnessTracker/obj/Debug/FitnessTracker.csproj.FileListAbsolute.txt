@@ -1,0 +1,15 @@
+C:\Users\erics\Documents\Projects\Portfolio\FitnessTrackerWF\FitnessTrackerWF\FitnessTracker\bin\Debug\FitnessTracker.exe.config
+C:\Users\erics\Documents\Projects\Portfolio\FitnessTrackerWF\FitnessTrackerWF\FitnessTracker\bin\Debug\FitnessTracker.exe
+C:\Users\erics\Documents\Projects\Portfolio\FitnessTrackerWF\FitnessTrackerWF\FitnessTracker\bin\Debug\FitnessTracker.pdb
+C:\Users\erics\Documents\Projects\Portfolio\FitnessTrackerWF\FitnessTrackerWF\FitnessTracker\bin\Debug\MetroFramework.Design.dll
+C:\Users\erics\Documents\Projects\Portfolio\FitnessTrackerWF\FitnessTrackerWF\FitnessTracker\bin\Debug\MetroFramework.dll
+C:\Users\erics\Documents\Projects\Portfolio\FitnessTrackerWF\FitnessTrackerWF\FitnessTracker\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\erics\Documents\Projects\Portfolio\FitnessTrackerWF\FitnessTrackerWF\FitnessTracker\obj\Debug\FitnessTracker.csprojAssemblyReference.cache
+C:\Users\erics\Documents\Projects\Portfolio\FitnessTrackerWF\FitnessTrackerWF\FitnessTracker\obj\Debug\FitnessTracker.LoginForm.resources
+C:\Users\erics\Documents\Projects\Portfolio\FitnessTrackerWF\FitnessTrackerWF\FitnessTracker\obj\Debug\FitnessTracker.NewUserForm.resources
+C:\Users\erics\Documents\Projects\Portfolio\FitnessTrackerWF\FitnessTrackerWF\FitnessTracker\obj\Debug\FitnessTracker.Properties.Resources.resources
+C:\Users\erics\Documents\Projects\Portfolio\FitnessTrackerWF\FitnessTrackerWF\FitnessTracker\obj\Debug\FitnessTracker.csproj.GenerateResource.cache
+C:\Users\erics\Documents\Projects\Portfolio\FitnessTrackerWF\FitnessTrackerWF\FitnessTracker\obj\Debug\FitnessTracker.csproj.CoreCompileInputs.cache
+C:\Users\erics\Documents\Projects\Portfolio\FitnessTrackerWF\FitnessTrackerWF\FitnessTracker\obj\Debug\FitnessTracker.csproj.CopyComplete
+C:\Users\erics\Documents\Projects\Portfolio\FitnessTrackerWF\FitnessTrackerWF\FitnessTracker\obj\Debug\FitnessTracker.exe
+C:\Users\erics\Documents\Projects\Portfolio\FitnessTrackerWF\FitnessTrackerWF\FitnessTracker\obj\Debug\FitnessTracker.pdb
