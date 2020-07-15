@@ -47,3 +47,5 @@ C:\Users\erics\Documents\Projects\Portfolio\FitnessTrackerWF\FitnessTrackerWF\Fi
 C:\Users\erics\Documents\Projects\Portfolio\FitnessTrackerWF\FitnessTrackerWF\FitnessTracker\bin\Debug\FitnessLibrary.pdb
 C:\Users\erics\Documents\Projects\Portfolio\FitnessTrackerWF\FitnessTrackerWF\FitnessTracker\bin\Debug\FitnessLibrary.dll.config
 C:\Users\erics\Documents\Projects\Portfolio\FitnessTrackerWF\FitnessTrackerWF\FitnessTracker\obj\Debug\FitnessTracker.NewActivityForm.resources
+C:\Users\erics\Documents\Projects\Portfolio\FitnessTrackerWF\FitnessTrackerWF\FitnessTracker\obj\Debug\FitnessTracker.NewActivityTypeForm.resources
+C:\Users\erics\Documents\Projects\Portfolio\FitnessTrackerWF\FitnessTrackerWF\FitnessTracker\obj\Debug\FitnessTracker.ManageActivityTypesForm.resources

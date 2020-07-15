@@ -1,5 +1,6 @@
 ﻿using FTLibrary.DataAccess;
 using FTLibrary.Models;
+using MetroFramework.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,19 +18,26 @@ namespace FitnessTracker
         public NewUserForm()
         {
             InitializeComponent();
-
         }
 
         //TODO add form validation
         private bool ValidateForm()
         {
             bool validated = true;
-            
-            //Has a username been entered?
-            //TODO - check if username already exists?
-            if(newUsernameTextBox.Text.Length < 1)
+
+            var context = new FitnessContext();
+            var userList = context.Users.ToList();
+            List<string> userNames = new List<string>();
+
+            foreach(var u in userList)
+            {
+                userNames.Add(u.Username);
+            }
+
+            if (userNames.Contains(newUsernameTextBox.Text))
             {
                 validated = false;
+                MessageBox.Show("This username has already been taken.");
             }
             
             return validated;
@@ -37,26 +45,30 @@ namespace FitnessTracker
 
         private void createProfileButton_Click(object sender, EventArgs e)
         {
-            var context = new FitnessContext();
-            
-            //add new user and set properties
-            var newUser = new User {
-                Username = newUsernameTextBox.Text,
-                FirstName = firstNameTextBox.Text,
-                LastName = lastNameTextBox.Text,
-                EmailAddress = emailTextBox.Text,
-                Location = locationTextBox.Text
-                //TODO add ability to choose city, state from a dropdown list?
-            };
+            if (ValidateForm())
+            {
+                var context = new FitnessContext();
 
-            context.Users.Add(newUser);
+                //add new user and set properties
+                var newUser = new User
+                {
+                    Username = newUsernameTextBox.Text,
+                    FirstName = firstNameTextBox.Text,
+                    LastName = lastNameTextBox.Text,
+                    EmailAddress = emailTextBox.Text,
+                    Location = locationTextBox.Text
+                    //TODO add ability to choose city, state from a dropdown list?
+                };
 
-            context.SaveChanges();
+                context.Users.Add(newUser);
 
-            this.Hide();
+                context.SaveChanges();
 
-            Form newActivitiesListForm = new ActivitesListForm();
-            newActivitiesListForm.Show();
+                this.Hide();
+
+                Form newActivitiesListForm = new ActivitesListForm(newUser);
+                newActivitiesListForm.Show(); 
+            }
         }
     }
 }

@@ -1,9 +1,11 @@
 ﻿using FTLibrary.DataAccess;
+using FTLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +15,7 @@ namespace FitnessTracker
 {
     public partial class LoginForm : Form
     {
+        private User _user;
         public LoginForm()
         {
             InitializeComponent();
@@ -33,9 +36,9 @@ namespace FitnessTracker
         
         private void signInButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Signing in");
-
-            Form newActivitiesListForm = new ActivitesListForm();
+            _user = (User) availableUserDropDown.SelectedValue;
+            
+            Form newActivitiesListForm = new ActivitesListForm(_user);
             newActivitiesListForm.Show();
 
             //TODO get all activities from current user and open AllActivitesForm

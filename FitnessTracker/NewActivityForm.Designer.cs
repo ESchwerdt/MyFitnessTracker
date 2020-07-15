@@ -35,10 +35,9 @@
             this.activityTypeDropDown = new MetroFramework.Controls.MetroComboBox();
             this.dateDateTimeChooser = new MetroFramework.Controls.MetroDateTime();
             this.dateLabel = new MetroFramework.Controls.MetroLabel();
-            this.addActivityTypeButton = new MetroFramework.Controls.MetroButton();
             this.durationLabel = new MetroFramework.Controls.MetroLabel();
-            this.activityDurationTextBox = new MetroFramework.Controls.MetroTextBox();
-            this.metroTextBox1 = new MetroFramework.Controls.MetroTextBox();
+            this.activityHourTextBox = new MetroFramework.Controls.MetroTextBox();
+            this.distanceTextBox = new MetroFramework.Controls.MetroTextBox();
             this.distanceLabel = new MetroFramework.Controls.MetroLabel();
             this.milesRadioButton = new MetroFramework.Controls.MetroRadioButton();
             this.kmRadioButton = new MetroFramework.Controls.MetroRadioButton();
@@ -46,6 +45,14 @@
             this.notesTextBox = new MetroFramework.Controls.MetroTextBox();
             this.addActivityButton = new MetroFramework.Controls.MetroButton();
             this.cancelNewActivityButton = new MetroFramework.Controls.MetroButton();
+            this.manageActivityTypesButton = new MetroFramework.Controls.MetroButton();
+            this.refreshButton = new MetroFramework.Controls.MetroButton();
+            this.testLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.hrLabel = new MetroFramework.Controls.MetroLabel();
+            this.minLabel = new MetroFramework.Controls.MetroLabel();
+            this.activityMinsTextBox = new MetroFramework.Controls.MetroTextBox();
+            this.secLabel = new MetroFramework.Controls.MetroLabel();
+            this.activitySecTextBox = new MetroFramework.Controls.MetroTextBox();
             this.SuspendLayout();
             // 
             // headerLabel
@@ -65,7 +72,7 @@
             // 
             // 
             this.activityTitleTextBox.CustomButton.Image = null;
-            this.activityTitleTextBox.CustomButton.Location = new System.Drawing.Point(381, 1);
+            this.activityTitleTextBox.CustomButton.Location = new System.Drawing.Point(393, 1);
             this.activityTitleTextBox.CustomButton.Name = "";
             this.activityTitleTextBox.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.activityTitleTextBox.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -83,7 +90,7 @@
             this.activityTitleTextBox.SelectionLength = 0;
             this.activityTitleTextBox.SelectionStart = 0;
             this.activityTitleTextBox.ShortcutsEnabled = true;
-            this.activityTitleTextBox.Size = new System.Drawing.Size(403, 23);
+            this.activityTitleTextBox.Size = new System.Drawing.Size(415, 23);
             this.activityTitleTextBox.TabIndex = 13;
             this.activityTitleTextBox.UseSelectable = true;
             this.activityTitleTextBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -115,7 +122,7 @@
             this.activityTypeDropDown.ItemHeight = 24;
             this.activityTypeDropDown.Location = new System.Drawing.Point(151, 107);
             this.activityTypeDropDown.Name = "activityTypeDropDown";
-            this.activityTypeDropDown.Size = new System.Drawing.Size(177, 30);
+            this.activityTypeDropDown.Size = new System.Drawing.Size(180, 30);
             this.activityTypeDropDown.TabIndex = 15;
             this.activityTypeDropDown.UseSelectable = true;
             // 
@@ -137,84 +144,75 @@
             this.dateLabel.TabIndex = 17;
             this.dateLabel.Text = "Date:";
             // 
-            // addActivityTypeButton
-            // 
-            this.addActivityTypeButton.Location = new System.Drawing.Point(345, 114);
-            this.addActivityTypeButton.Name = "addActivityTypeButton";
-            this.addActivityTypeButton.Size = new System.Drawing.Size(142, 23);
-            this.addActivityTypeButton.TabIndex = 18;
-            this.addActivityTypeButton.Text = "Add New Activity Type";
-            this.addActivityTypeButton.UseSelectable = true;
-            // 
             // durationLabel
             // 
             this.durationLabel.AutoSize = true;
             this.durationLabel.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.durationLabel.Location = new System.Drawing.Point(28, 201);
             this.durationLabel.Name = "durationLabel";
-            this.durationLabel.Size = new System.Drawing.Size(184, 25);
+            this.durationLabel.Size = new System.Drawing.Size(85, 25);
             this.durationLabel.TabIndex = 19;
-            this.durationLabel.Text = "Duration (HH:MM:SS):";
+            this.durationLabel.Text = "Duration:";
             // 
-            // activityDurationTextBox
-            // 
-            // 
-            // 
-            // 
-            this.activityDurationTextBox.CustomButton.Image = null;
-            this.activityDurationTextBox.CustomButton.Location = new System.Drawing.Point(200, 1);
-            this.activityDurationTextBox.CustomButton.Name = "";
-            this.activityDurationTextBox.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.activityDurationTextBox.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.activityDurationTextBox.CustomButton.TabIndex = 1;
-            this.activityDurationTextBox.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.activityDurationTextBox.CustomButton.UseSelectable = true;
-            this.activityDurationTextBox.CustomButton.Visible = false;
-            this.activityDurationTextBox.Lines = new string[0];
-            this.activityDurationTextBox.Location = new System.Drawing.Point(218, 203);
-            this.activityDurationTextBox.MaxLength = 32767;
-            this.activityDurationTextBox.Name = "activityDurationTextBox";
-            this.activityDurationTextBox.PasswordChar = '\0';
-            this.activityDurationTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.activityDurationTextBox.SelectedText = "";
-            this.activityDurationTextBox.SelectionLength = 0;
-            this.activityDurationTextBox.SelectionStart = 0;
-            this.activityDurationTextBox.ShortcutsEnabled = true;
-            this.activityDurationTextBox.Size = new System.Drawing.Size(222, 23);
-            this.activityDurationTextBox.TabIndex = 20;
-            this.activityDurationTextBox.UseSelectable = true;
-            this.activityDurationTextBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.activityDurationTextBox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // metroTextBox1
+            // activityHourTextBox
             // 
             // 
             // 
             // 
-            this.metroTextBox1.CustomButton.Image = null;
-            this.metroTextBox1.CustomButton.Location = new System.Drawing.Point(83, 1);
-            this.metroTextBox1.CustomButton.Name = "";
-            this.metroTextBox1.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.metroTextBox1.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroTextBox1.CustomButton.TabIndex = 1;
-            this.metroTextBox1.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.metroTextBox1.CustomButton.UseSelectable = true;
-            this.metroTextBox1.CustomButton.Visible = false;
-            this.metroTextBox1.Lines = new string[0];
-            this.metroTextBox1.Location = new System.Drawing.Point(118, 249);
-            this.metroTextBox1.MaxLength = 32767;
-            this.metroTextBox1.Name = "metroTextBox1";
-            this.metroTextBox1.PasswordChar = '\0';
-            this.metroTextBox1.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.metroTextBox1.SelectedText = "";
-            this.metroTextBox1.SelectionLength = 0;
-            this.metroTextBox1.SelectionStart = 0;
-            this.metroTextBox1.ShortcutsEnabled = true;
-            this.metroTextBox1.Size = new System.Drawing.Size(105, 23);
-            this.metroTextBox1.TabIndex = 22;
-            this.metroTextBox1.UseSelectable = true;
-            this.metroTextBox1.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.metroTextBox1.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.activityHourTextBox.CustomButton.Image = null;
+            this.activityHourTextBox.CustomButton.Location = new System.Drawing.Point(24, 1);
+            this.activityHourTextBox.CustomButton.Name = "";
+            this.activityHourTextBox.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.activityHourTextBox.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.activityHourTextBox.CustomButton.TabIndex = 1;
+            this.activityHourTextBox.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.activityHourTextBox.CustomButton.UseSelectable = true;
+            this.activityHourTextBox.CustomButton.Visible = false;
+            this.activityHourTextBox.Lines = new string[0];
+            this.activityHourTextBox.Location = new System.Drawing.Point(118, 203);
+            this.activityHourTextBox.MaxLength = 32767;
+            this.activityHourTextBox.Name = "activityHourTextBox";
+            this.activityHourTextBox.PasswordChar = '\0';
+            this.activityHourTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.activityHourTextBox.SelectedText = "";
+            this.activityHourTextBox.SelectionLength = 0;
+            this.activityHourTextBox.SelectionStart = 0;
+            this.activityHourTextBox.ShortcutsEnabled = true;
+            this.activityHourTextBox.Size = new System.Drawing.Size(46, 23);
+            this.activityHourTextBox.TabIndex = 20;
+            this.activityHourTextBox.UseSelectable = true;
+            this.activityHourTextBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.activityHourTextBox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // distanceTextBox
+            // 
+            // 
+            // 
+            // 
+            this.distanceTextBox.CustomButton.Image = null;
+            this.distanceTextBox.CustomButton.Location = new System.Drawing.Point(83, 1);
+            this.distanceTextBox.CustomButton.Name = "";
+            this.distanceTextBox.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.distanceTextBox.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.distanceTextBox.CustomButton.TabIndex = 1;
+            this.distanceTextBox.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.distanceTextBox.CustomButton.UseSelectable = true;
+            this.distanceTextBox.CustomButton.Visible = false;
+            this.distanceTextBox.Lines = new string[0];
+            this.distanceTextBox.Location = new System.Drawing.Point(118, 249);
+            this.distanceTextBox.MaxLength = 32767;
+            this.distanceTextBox.Name = "distanceTextBox";
+            this.distanceTextBox.PasswordChar = '\0';
+            this.distanceTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.distanceTextBox.SelectedText = "";
+            this.distanceTextBox.SelectionLength = 0;
+            this.distanceTextBox.SelectionStart = 0;
+            this.distanceTextBox.ShortcutsEnabled = true;
+            this.distanceTextBox.Size = new System.Drawing.Size(105, 23);
+            this.distanceTextBox.TabIndex = 22;
+            this.distanceTextBox.UseSelectable = true;
+            this.distanceTextBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.distanceTextBox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // distanceLabel
             // 
@@ -311,23 +309,149 @@
             this.cancelNewActivityButton.UseSelectable = true;
             this.cancelNewActivityButton.Click += new System.EventHandler(this.cancelNewActivityButton_Click);
             // 
+            // manageActivityTypesButton
+            // 
+            this.manageActivityTypesButton.Location = new System.Drawing.Point(337, 114);
+            this.manageActivityTypesButton.Name = "manageActivityTypesButton";
+            this.manageActivityTypesButton.Size = new System.Drawing.Size(78, 23);
+            this.manageActivityTypesButton.TabIndex = 29;
+            this.manageActivityTypesButton.Text = "Manage";
+            this.manageActivityTypesButton.UseSelectable = true;
+            this.manageActivityTypesButton.Click += new System.EventHandler(this.manageActivityTypesButton_Click);
+            // 
+            // refreshButton
+            // 
+            this.refreshButton.Location = new System.Drawing.Point(421, 114);
+            this.refreshButton.Name = "refreshButton";
+            this.refreshButton.Size = new System.Drawing.Size(78, 23);
+            this.refreshButton.TabIndex = 30;
+            this.refreshButton.Text = "Refresh";
+            this.refreshButton.UseSelectable = true;
+            this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
+            // 
+            // testLabel1
+            // 
+            this.testLabel1.AutoSize = true;
+            this.testLabel1.Location = new System.Drawing.Point(436, 27);
+            this.testLabel1.Name = "testLabel1";
+            this.testLabel1.Size = new System.Drawing.Size(84, 20);
+            this.testLabel1.TabIndex = 31;
+            this.testLabel1.Text = "metroLabel1";
+            // 
+            // hrLabel
+            // 
+            this.hrLabel.AutoSize = true;
+            this.hrLabel.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.hrLabel.Location = new System.Drawing.Point(165, 201);
+            this.hrLabel.Name = "hrLabel";
+            this.hrLabel.Size = new System.Drawing.Size(28, 25);
+            this.hrLabel.TabIndex = 32;
+            this.hrLabel.Text = "hr";
+            // 
+            // minLabel
+            // 
+            this.minLabel.AutoSize = true;
+            this.minLabel.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.minLabel.Location = new System.Drawing.Point(246, 201);
+            this.minLabel.Name = "minLabel";
+            this.minLabel.Size = new System.Drawing.Size(42, 25);
+            this.minLabel.TabIndex = 34;
+            this.minLabel.Text = "min";
+            // 
+            // activityMinsTextBox
+            // 
+            // 
+            // 
+            // 
+            this.activityMinsTextBox.CustomButton.Image = null;
+            this.activityMinsTextBox.CustomButton.Location = new System.Drawing.Point(24, 1);
+            this.activityMinsTextBox.CustomButton.Name = "";
+            this.activityMinsTextBox.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.activityMinsTextBox.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.activityMinsTextBox.CustomButton.TabIndex = 1;
+            this.activityMinsTextBox.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.activityMinsTextBox.CustomButton.UseSelectable = true;
+            this.activityMinsTextBox.CustomButton.Visible = false;
+            this.activityMinsTextBox.Lines = new string[0];
+            this.activityMinsTextBox.Location = new System.Drawing.Point(199, 203);
+            this.activityMinsTextBox.MaxLength = 32767;
+            this.activityMinsTextBox.Name = "activityMinsTextBox";
+            this.activityMinsTextBox.PasswordChar = '\0';
+            this.activityMinsTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.activityMinsTextBox.SelectedText = "";
+            this.activityMinsTextBox.SelectionLength = 0;
+            this.activityMinsTextBox.SelectionStart = 0;
+            this.activityMinsTextBox.ShortcutsEnabled = true;
+            this.activityMinsTextBox.Size = new System.Drawing.Size(46, 23);
+            this.activityMinsTextBox.TabIndex = 33;
+            this.activityMinsTextBox.UseSelectable = true;
+            this.activityMinsTextBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.activityMinsTextBox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // secLabel
+            // 
+            this.secLabel.AutoSize = true;
+            this.secLabel.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.secLabel.Location = new System.Drawing.Point(341, 201);
+            this.secLabel.Name = "secLabel";
+            this.secLabel.Size = new System.Drawing.Size(37, 25);
+            this.secLabel.TabIndex = 36;
+            this.secLabel.Text = "sec";
+            // 
+            // activitySecTextBox
+            // 
+            // 
+            // 
+            // 
+            this.activitySecTextBox.CustomButton.Image = null;
+            this.activitySecTextBox.CustomButton.Location = new System.Drawing.Point(24, 1);
+            this.activitySecTextBox.CustomButton.Name = "";
+            this.activitySecTextBox.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.activitySecTextBox.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.activitySecTextBox.CustomButton.TabIndex = 1;
+            this.activitySecTextBox.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.activitySecTextBox.CustomButton.UseSelectable = true;
+            this.activitySecTextBox.CustomButton.Visible = false;
+            this.activitySecTextBox.Lines = new string[0];
+            this.activitySecTextBox.Location = new System.Drawing.Point(294, 203);
+            this.activitySecTextBox.MaxLength = 32767;
+            this.activitySecTextBox.Name = "activitySecTextBox";
+            this.activitySecTextBox.PasswordChar = '\0';
+            this.activitySecTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.activitySecTextBox.SelectedText = "";
+            this.activitySecTextBox.SelectionLength = 0;
+            this.activitySecTextBox.SelectionStart = 0;
+            this.activitySecTextBox.ShortcutsEnabled = true;
+            this.activitySecTextBox.Size = new System.Drawing.Size(46, 23);
+            this.activitySecTextBox.TabIndex = 35;
+            this.activitySecTextBox.UseSelectable = true;
+            this.activitySecTextBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.activitySecTextBox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
             // NewActivityForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(527, 613);
+            this.ClientSize = new System.Drawing.Size(581, 613);
+            this.Controls.Add(this.secLabel);
+            this.Controls.Add(this.activitySecTextBox);
+            this.Controls.Add(this.minLabel);
+            this.Controls.Add(this.activityMinsTextBox);
+            this.Controls.Add(this.hrLabel);
+            this.Controls.Add(this.testLabel1);
+            this.Controls.Add(this.refreshButton);
+            this.Controls.Add(this.manageActivityTypesButton);
             this.Controls.Add(this.cancelNewActivityButton);
             this.Controls.Add(this.addActivityButton);
             this.Controls.Add(this.notesTextBox);
             this.Controls.Add(this.activityNotesLabel);
             this.Controls.Add(this.kmRadioButton);
             this.Controls.Add(this.milesRadioButton);
-            this.Controls.Add(this.metroTextBox1);
+            this.Controls.Add(this.distanceTextBox);
             this.Controls.Add(this.distanceLabel);
-            this.Controls.Add(this.activityDurationTextBox);
+            this.Controls.Add(this.activityHourTextBox);
             this.Controls.Add(this.durationLabel);
-            this.Controls.Add(this.addActivityTypeButton);
             this.Controls.Add(this.dateLabel);
             this.Controls.Add(this.dateDateTimeChooser);
             this.Controls.Add(this.activityTypeDropDown);
@@ -353,10 +477,9 @@
         private MetroFramework.Controls.MetroComboBox activityTypeDropDown;
         private MetroFramework.Controls.MetroDateTime dateDateTimeChooser;
         private MetroFramework.Controls.MetroLabel dateLabel;
-        private MetroFramework.Controls.MetroButton addActivityTypeButton;
         private MetroFramework.Controls.MetroLabel durationLabel;
-        private MetroFramework.Controls.MetroTextBox activityDurationTextBox;
-        private MetroFramework.Controls.MetroTextBox metroTextBox1;
+        private MetroFramework.Controls.MetroTextBox activityHourTextBox;
+        private MetroFramework.Controls.MetroTextBox distanceTextBox;
         private MetroFramework.Controls.MetroLabel distanceLabel;
         private MetroFramework.Controls.MetroRadioButton milesRadioButton;
         private MetroFramework.Controls.MetroRadioButton kmRadioButton;
@@ -364,5 +487,13 @@
         private MetroFramework.Controls.MetroTextBox notesTextBox;
         private MetroFramework.Controls.MetroButton addActivityButton;
         private MetroFramework.Controls.MetroButton cancelNewActivityButton;
+        private MetroFramework.Controls.MetroButton manageActivityTypesButton;
+        private MetroFramework.Controls.MetroButton refreshButton;
+        private MetroFramework.Controls.MetroLabel testLabel1;
+        private MetroFramework.Controls.MetroLabel hrLabel;
+        private MetroFramework.Controls.MetroLabel minLabel;
+        private MetroFramework.Controls.MetroTextBox activityMinsTextBox;
+        private MetroFramework.Controls.MetroLabel secLabel;
+        private MetroFramework.Controls.MetroTextBox activitySecTextBox;
     }
 }
