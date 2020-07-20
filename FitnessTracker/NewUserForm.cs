@@ -15,18 +15,20 @@ namespace FitnessTracker
 {
     public partial class NewUserForm : Form
     {
+        private FitnessContext _context;
+
         public NewUserForm()
         {
             InitializeComponent();
+            _context = new FitnessContext();
+
         }
 
-        //TODO add form validation
-        private bool ValidateForm()
+        private bool IsValidated()
         {
             bool validated = true;
 
-            var context = new FitnessContext();
-            var userList = context.Users.ToList();
+            var userList = _context.Users.ToList();
             List<string> userNames = new List<string>();
 
             foreach(var u in userList)
@@ -45,30 +47,26 @@ namespace FitnessTracker
 
         private void createProfileButton_Click(object sender, EventArgs e)
         {
-            if (ValidateForm())
+            if (!IsValidated()) return;
+
+            //add new user and set properties
+            var newUser = new User
             {
-                var context = new FitnessContext();
+                Username = newUsernameTextBox.Text,
+                FirstName = firstNameTextBox.Text,
+                LastName = lastNameTextBox.Text,
+                EmailAddress = emailTextBox.Text,
+                Location = locationTextBox.Text
+            };
 
-                //add new user and set properties
-                var newUser = new User
-                {
-                    Username = newUsernameTextBox.Text,
-                    FirstName = firstNameTextBox.Text,
-                    LastName = lastNameTextBox.Text,
-                    EmailAddress = emailTextBox.Text,
-                    Location = locationTextBox.Text
-                    //TODO add ability to choose city, state from a dropdown list?
-                };
+            _context.Users.Add(newUser);
+            _context.SaveChanges();
 
-                context.Users.Add(newUser);
 
-                context.SaveChanges();
+            this.Hide();
 
-                this.Hide();
-
-                Form newActivitiesListForm = new ActivitiesListForm(newUser);
-                newActivitiesListForm.Show(); 
-            }
+            Form newActivitiesListForm = new ActivitiesListForm(newUser);
+            newActivitiesListForm.Show(); 
         }
     }
 }

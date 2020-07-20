@@ -15,28 +15,28 @@ namespace FitnessTracker
 {
     public partial class ManageActivityTypesForm : Form
     {
+        private FitnessContext _context;
+
         public ManageActivityTypesForm()
         {
             InitializeComponent();
+            var _context = new FitnessContext();
             WireUpList();
         }
 
         private void WireUpList()
         {
-            var context = new FitnessContext();
-
-            var availableActivities = context.ActivityTypes.ToList();
+            var availableActivities = _context.ActivityTypes.ToList();
 
             activityTypeListBox.DataSource = availableActivities;
             activityTypeListBox.DisplayMember = "ActivityName";
         }
 
-        private bool ValidateForm()
+        private bool isValidated()
         {
             var validated = true;
 
-            var context = new FitnessContext();
-            var availableActivities = context.ActivityTypes.ToList();
+            var availableActivities = _context.ActivityTypes.ToList();
 
             List<string> aList = new List<string>();
 
@@ -60,20 +60,23 @@ namespace FitnessTracker
             return validated;
         }
         
+        private void AddActivityTypeToDB()
+        {
+            var newActivity = new ActivityType();
+            newActivity.ActivityName = addActivityNameTextBox.Text;
+
+            _context.ActivityTypes.Add(newActivity);
+            _context.SaveChanges();
+        }
+
         private void addActivityTypeButton_Click(object sender, EventArgs e)
         {
-            var context = new FitnessContext();
 
-            if (ValidateForm())
-            {
+            if (!isValidated()) return;
+            
+            AddActivityTypeToDB();
 
-                var newActivity = new ActivityType();
-                newActivity.ActivityName = addActivityNameTextBox.Text;
-
-                context.ActivityTypes.Add(newActivity);
-                context.SaveChanges();
-                WireUpList();
-            }
+            WireUpList();
 
         }
 

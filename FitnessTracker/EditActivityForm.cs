@@ -1,6 +1,7 @@
 ﻿using FitnessLibrary.DataAccess;
 using FTLibrary.DataAccess;
 using FTLibrary.Models;
+using Google.Protobuf.WellKnownTypes;
 using Org.BouncyCastle.Asn1.Cmp;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,16 +19,17 @@ namespace FitnessTracker
     public partial class EditActivityForm : Form
     {
         private Activity _activity;
-        private TimeSpan _duration;
+        private FitnessContext _context;
+
         public EditActivityForm(Activity activity)
         {
             _activity = activity;
+            _context = new FitnessContext();
+
             InitializeComponent();
             WireActivityTypeList();
             PopulateForm();
         }
-
-        //TODO Implement save changes & delete functions
 
         private void WireActivityTypeList()
         {
@@ -52,7 +55,7 @@ namespace FitnessTracker
             notesTextBox.Text = notes;
         }
 
-        private bool ValidateForm()
+        private bool IsValidated()
         {
             bool validated = true;
 
@@ -84,7 +87,6 @@ namespace FitnessTracker
                 MessageBox.Show("Please enter a valid duration time value");
             }
 
-
             return validated;
         }
 
@@ -104,71 +106,65 @@ namespace FitnessTracker
             this.Close();
         }
 
+        private TimeSpan parseDuration()
+        {
+            int durationHrs = String.IsNullOrWhiteSpace(activityHourTextBox.Text) ? 0
+                    : int.Parse(activityHourTextBox.Text);
+            int durationMins = String.IsNullOrWhiteSpace(activityMinsTextBox.Text) ? 0
+                : int.Parse(activityMinsTextBox.Text);
+            int durationSecs = String.IsNullOrWhiteSpace(activitySecTextBox.Text) ? 0
+                : int.Parse(activitySecTextBox.Text);
+
+            var duration = new TimeSpan(durationHrs, durationMins, durationSecs);
+
+            return duration;
+        }
+        
+        private void UpdateActivityInDB()
+        {
+            var duration = parseDuration();
+
+            //If you don't do this, it will create a new ActivityType with every new Activity (Weird WinForms thing)
+            var selectedActivityType = activityTypeDropDown.SelectedItem as ActivityType;
+            var selectedActivityName = selectedActivityType.ActivityName.ToString();
+            var currentActivityType = _context.ActivityTypes.Single(t => t.ActivityName == selectedActivityName);
+
+            string notes = notesTextBox.Text.Replace(Environment.NewLine, "~");
+
+            double distance = double.TryParse(distanceTextBox.Text, out distance) ?
+                distance = double.Parse(distanceTextBox.Text) : 0;
+
+
+            //Find and update current activity in the db
+            var currentAct = _context.Activities.Find(_activity.Id);
+
+            currentAct.Title = activityTitleTextBox.Text;
+            currentAct.ActivityDuration = duration;
+            currentAct.ActivityDistance = distance;
+            currentAct.ActivityType = currentActivityType;
+            currentAct.ActivityStart = dateDateTimeChooser.Value;
+            currentAct.ActivityNotes = notes;
+
+            _context.SaveChanges();
+        }
+
         private void editActivityButton_Click(object sender, EventArgs e)
         {
-            if (ValidateForm())
-            {
-                //Parse duration into a timespan variable
-                int durationHrs = 0;
-                int durationMins = 0;
-                int durationSecs = 0;
+            if (!IsValidated()) return;
 
-                if (!String.IsNullOrWhiteSpace(activityHourTextBox.Text))
-                {
-                    durationHrs = int.Parse(activityHourTextBox.Text);
-                }
-                if (!String.IsNullOrWhiteSpace(activityMinsTextBox.Text))
-                {
-                    durationMins = int.Parse(activityMinsTextBox.Text);
-                }
-                if (!String.IsNullOrWhiteSpace(activityMinsTextBox.Text))
-                {
-                    durationSecs = int.Parse(activitySecTextBox.Text);
-                }
+            UpdateActivityInDB();
 
-                _duration = new TimeSpan(durationHrs, durationMins, durationSecs);
-
-                var context = new FitnessContext();
-
-                var selectedActivityType = activityTypeDropDown.SelectedItem as ActivityType;
-                var selectedActivityName = selectedActivityType.ActivityName.ToString();
-                var currentActivityType = context.ActivityTypes.Single(t => t.ActivityName == selectedActivityName);
-
-                string notes = notesTextBox.Text.Replace(Environment.NewLine, "~");
-
-
-                double distance = 0;
-
-                if (double.TryParse(distanceTextBox.Text, out distance))
-                {
-                    distance = double.Parse(distanceTextBox.Text);
-                }
-
-                //Find and update current activity in the db
-                var currentAct = context.Activities.Find(_activity.Id);
-
-                currentAct.Title = activityTitleTextBox.Text;
-                currentAct.ActivityDuration = _duration;
-                currentAct.ActivityDistance = distance;
-                currentAct.ActivityType = currentActivityType;
-                currentAct.ActivityStart = dateDateTimeChooser.Value;
-                currentAct.ActivityNotes = notes;
-
-                context.SaveChanges();
-
-                MessageBox.Show("Activity successfully updated.");
-                this.Close();
-            }
+            MessageBox.Show("Activity successfully updated.");
+            this.Close();
+            
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
-            var context = new FitnessContext();
+            var currentAct = _context.Activities.Find(_activity.Id);
 
-            var currentAct = context.Activities.Find(_activity.Id);
-
-            context.Activities.Remove(currentAct);
-            context.SaveChanges();
+            _context.Activities.Remove(currentAct);
+            _context.SaveChanges();
 
             MessageBox.Show("Activity successfully deleted.");
             this.Close();

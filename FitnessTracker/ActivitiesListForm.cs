@@ -83,14 +83,6 @@ namespace FitnessTracker
             var selAct = activitiesListView.SelectedItems[0];
             var actId = int.Parse(selAct.ToolTipText);
 
-            //var context = new FitnessContext();
-
-            //var userActivity = context.Activities
-            //    .Include("ActivityType")
-            //    .Where(a => a.Id == actId)
-            //    .ToList();
-            //var activity = userActivity[0];
-
             var activity = Queries.GetActivity(actId);
 
             Form viewActivity = new ViewActivityForm(activity);

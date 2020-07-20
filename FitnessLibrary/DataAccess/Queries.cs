@@ -58,5 +58,6 @@ namespace FitnessLibrary.DataAccess
 
             return availableActivities;
         }
+
     }
 }

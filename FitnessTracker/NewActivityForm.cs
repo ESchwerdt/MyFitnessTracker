@@ -17,11 +17,14 @@ namespace FitnessTracker
     {
         public User user;
         private string _username;
-        private TimeSpan _duration; 
+        private FitnessContext _context;
 
         public NewActivityForm(User user)
         {
             InitializeComponent();
+
+            _context = new FitnessContext();
+
             WireActivityTypeList();
 
             _username = user.Username;
@@ -40,7 +43,7 @@ namespace FitnessTracker
             activityTypeDropDown.DisplayMember = "ActivityName";
         }
         
-        private bool ValidateForm()
+        private bool IsValidated()
         {
             bool validated = true;
 
@@ -76,62 +79,57 @@ namespace FitnessTracker
             return validated;
         }
         
-        private void addActivityButton_Click(object sender, EventArgs e)
+        private TimeSpan ParseDuration()
         {
+            int durationHrs = String.IsNullOrWhiteSpace(activityHourTextBox.Text) ? 0
+                    : int.Parse(activityHourTextBox.Text);
+            int durationMins = String.IsNullOrWhiteSpace(activityMinsTextBox.Text) ? 0
+                : int.Parse(activityMinsTextBox.Text);
+            int durationSecs = String.IsNullOrWhiteSpace(activitySecTextBox.Text) ? 0
+                : int.Parse(activitySecTextBox.Text);
 
-            //Parse duration into a timespan variable
+            var duration = new TimeSpan(durationHrs, durationMins, durationSecs);
 
-            int durationHrs = 0;
-            int durationMins = 0;
-            int durationSecs = 0;
-            
-            if(!String.IsNullOrWhiteSpace(activityHourTextBox.Text))
-            {
-                durationHrs = int.Parse(activityHourTextBox.Text);
-            }
-            if (!String.IsNullOrWhiteSpace(activityMinsTextBox.Text))
-            {
-                durationMins = int.Parse(activityMinsTextBox.Text);
-            }
-            if (!String.IsNullOrWhiteSpace(activityMinsTextBox.Text))
-            {
-                durationSecs = int.Parse(activitySecTextBox.Text);
-            }
+            return duration;
+        }
 
-            _duration = new TimeSpan(durationHrs, durationMins, durationSecs);
+        private void AddNewActivityToDB()
+        {
+            var duration = ParseDuration();
 
+            var currentUser = _context.Users.Single(u => u.Username == _username);
 
-            var context = new FitnessContext();
-
-            var currentUser = context.Users.Single(u => u.Username == _username);
-
+            //If you don't do this, it will create a new ActivityType with every new Activity (Weird WinForms thing)
             var selectedActivityType = activityTypeDropDown.SelectedItem as ActivityType;
             var selectedActivityName = selectedActivityType.ActivityName.ToString();
-            var currentActivityType = context.ActivityTypes.Single(t => t.ActivityName == selectedActivityName);
+            var currentActivityType = _context.ActivityTypes.Single(t => t.ActivityName == selectedActivityName);
 
-            string notes = notesTextBox.Text.Replace(Environment.NewLine,"~");
-            
-            
-            double distance = 0;
+            string notes = notesTextBox.Text.Replace(Environment.NewLine, "~");
 
-            if (double.TryParse(distanceTextBox.Text, out distance))
+            double distance = double.TryParse(distanceTextBox.Text, out distance) ?
+                double.Parse(distanceTextBox.Text) : 0;
+
+            //Create new activity and save to db
+            var newActivity = new Activity
             {
-                distance = double.Parse(distanceTextBox.Text);
-            }
-           
-
-            var newActivity = new Activity {
                 Title = activityTitleTextBox.Text,
                 ActivityType = currentActivityType,
                 ActivityStart = dateDateTimeChooser.Value,
-                ActivityDuration = _duration,
+                ActivityDuration = duration,
                 ActivityDistance = distance,
                 ActivityNotes = notes,
                 User = currentUser
             };
 
-            context.Activities.Add(newActivity);
-            context.SaveChanges();
+            _context.Activities.Add(newActivity);
+            _context.SaveChanges();
+        }
+
+        private void addActivityButton_Click(object sender, EventArgs e)
+        {
+            if (!IsValidated()) return;
+
+            AddNewActivityToDB();
 
             MessageBox.Show("Activity Successfully Added!");
             this.Close();

@@ -132,12 +132,6 @@
     <Compile Include="ManageActivityTypesForm.Designer.cs">
       <DependentUpon>ManageActivityTypesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="NewActivityTypeForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="NewActivityTypeForm.Designer.cs">
-      <DependentUpon>NewActivityTypeForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="NewActivityForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,9 +172,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NewActivityForm.resx">
       <DependentUpon>NewActivityForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NewActivityTypeForm.resx">
-      <DependentUpon>NewActivityTypeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NewUserForm.resx">
       <DependentUpon>NewUserForm.cs</DependentUpon>
