@@ -101,9 +101,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataAccess\FitnessContext.cs" />
+    <Compile Include="DataAccess\Queries.cs" />
     <Compile Include="Migrations\202007101917148_InitialModel.cs" />
     <Compile Include="Migrations\202007101917148_InitialModel.Designer.cs">
       <DependentUpon>202007101917148_InitialModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007161329394_UpdateDistanceField.cs" />
+    <Compile Include="Migrations\202007161329394_UpdateDistanceField.Designer.cs">
+      <DependentUpon>202007161329394_UpdateDistanceField.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Activity.cs" />
@@ -118,6 +123,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202007101917148_InitialModel.resx">
       <DependentUpon>202007101917148_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007161329394_UpdateDistanceField.resx">
+      <DependentUpon>202007161329394_UpdateDistanceField.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

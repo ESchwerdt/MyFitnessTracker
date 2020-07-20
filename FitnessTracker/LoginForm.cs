@@ -38,13 +38,11 @@ namespace FitnessTracker
         {
             _user = (User) availableUserDropDown.SelectedValue;
             
-            Form newActivitiesListForm = new ActivitesListForm(_user);
+            Form newActivitiesListForm = new ActivitiesListForm(_user);
             newActivitiesListForm.Show();
 
-            //TODO get all activities from current user and open AllActivitesForm
-            //this.Hide();
-            //Form newUserForm = new NewUserForm();
-            //newUserForm.Show();
+            this.Hide();
+
         }
 
         private void createProfileLink_Click(object sender, EventArgs e)

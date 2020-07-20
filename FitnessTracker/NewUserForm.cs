@@ -66,7 +66,7 @@ namespace FitnessTracker
 
                 this.Hide();
 
-                Form newActivitiesListForm = new ActivitesListForm(newUser);
+                Form newActivitiesListForm = new ActivitiesListForm(newUser);
                 newActivitiesListForm.Show(); 
             }
         }

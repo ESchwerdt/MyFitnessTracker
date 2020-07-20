@@ -39,20 +39,18 @@
             this.activityHourTextBox = new MetroFramework.Controls.MetroTextBox();
             this.distanceTextBox = new MetroFramework.Controls.MetroTextBox();
             this.distanceLabel = new MetroFramework.Controls.MetroLabel();
-            this.milesRadioButton = new MetroFramework.Controls.MetroRadioButton();
-            this.kmRadioButton = new MetroFramework.Controls.MetroRadioButton();
             this.activityNotesLabel = new MetroFramework.Controls.MetroLabel();
             this.notesTextBox = new MetroFramework.Controls.MetroTextBox();
             this.addActivityButton = new MetroFramework.Controls.MetroButton();
             this.cancelNewActivityButton = new MetroFramework.Controls.MetroButton();
             this.manageActivityTypesButton = new MetroFramework.Controls.MetroButton();
             this.refreshButton = new MetroFramework.Controls.MetroButton();
-            this.testLabel1 = new MetroFramework.Controls.MetroLabel();
             this.hrLabel = new MetroFramework.Controls.MetroLabel();
             this.minLabel = new MetroFramework.Controls.MetroLabel();
             this.activityMinsTextBox = new MetroFramework.Controls.MetroTextBox();
             this.secLabel = new MetroFramework.Controls.MetroLabel();
             this.activitySecTextBox = new MetroFramework.Controls.MetroTextBox();
+            this.miLabel = new MetroFramework.Controls.MetroLabel();
             this.SuspendLayout();
             // 
             // headerLabel
@@ -179,7 +177,7 @@
             this.activityHourTextBox.SelectionStart = 0;
             this.activityHourTextBox.ShortcutsEnabled = true;
             this.activityHourTextBox.Size = new System.Drawing.Size(46, 23);
-            this.activityHourTextBox.TabIndex = 20;
+            this.activityHourTextBox.TabIndex = 17;
             this.activityHourTextBox.UseSelectable = true;
             this.activityHourTextBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.activityHourTextBox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -224,28 +222,6 @@
             this.distanceLabel.TabIndex = 21;
             this.distanceLabel.Text = "Distance:";
             // 
-            // milesRadioButton
-            // 
-            this.milesRadioButton.AutoSize = true;
-            this.milesRadioButton.Checked = true;
-            this.milesRadioButton.Location = new System.Drawing.Point(242, 255);
-            this.milesRadioButton.Name = "milesRadioButton";
-            this.milesRadioButton.Size = new System.Drawing.Size(38, 17);
-            this.milesRadioButton.TabIndex = 23;
-            this.milesRadioButton.TabStop = true;
-            this.milesRadioButton.Text = "mi";
-            this.milesRadioButton.UseSelectable = true;
-            // 
-            // kmRadioButton
-            // 
-            this.kmRadioButton.AutoSize = true;
-            this.kmRadioButton.Location = new System.Drawing.Point(290, 255);
-            this.kmRadioButton.Name = "kmRadioButton";
-            this.kmRadioButton.Size = new System.Drawing.Size(41, 17);
-            this.kmRadioButton.TabIndex = 24;
-            this.kmRadioButton.Text = "km";
-            this.kmRadioButton.UseSelectable = true;
-            // 
             // activityNotesLabel
             // 
             this.activityNotesLabel.AutoSize = true;
@@ -289,8 +265,8 @@
             // 
             // addActivityButton
             // 
-            this.addActivityButton.FontSize = MetroFramework.MetroButtonSize.Tall;
-            this.addActivityButton.Location = new System.Drawing.Point(259, 550);
+            this.addActivityButton.FontSize = MetroFramework.MetroButtonSize.Medium;
+            this.addActivityButton.Location = new System.Drawing.Point(246, 550);
             this.addActivityButton.Name = "addActivityButton";
             this.addActivityButton.Size = new System.Drawing.Size(178, 44);
             this.addActivityButton.TabIndex = 27;
@@ -300,10 +276,10 @@
             // 
             // cancelNewActivityButton
             // 
-            this.cancelNewActivityButton.FontSize = MetroFramework.MetroButtonSize.Tall;
-            this.cancelNewActivityButton.Location = new System.Drawing.Point(37, 550);
+            this.cancelNewActivityButton.FontSize = MetroFramework.MetroButtonSize.Medium;
+            this.cancelNewActivityButton.Location = new System.Drawing.Point(57, 550);
             this.cancelNewActivityButton.Name = "cancelNewActivityButton";
-            this.cancelNewActivityButton.Size = new System.Drawing.Size(178, 44);
+            this.cancelNewActivityButton.Size = new System.Drawing.Size(136, 44);
             this.cancelNewActivityButton.TabIndex = 28;
             this.cancelNewActivityButton.Text = "Cancel";
             this.cancelNewActivityButton.UseSelectable = true;
@@ -328,15 +304,6 @@
             this.refreshButton.Text = "Refresh";
             this.refreshButton.UseSelectable = true;
             this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
-            // 
-            // testLabel1
-            // 
-            this.testLabel1.AutoSize = true;
-            this.testLabel1.Location = new System.Drawing.Point(436, 27);
-            this.testLabel1.Name = "testLabel1";
-            this.testLabel1.Size = new System.Drawing.Size(84, 20);
-            this.testLabel1.TabIndex = 31;
-            this.testLabel1.Text = "metroLabel1";
             // 
             // hrLabel
             // 
@@ -383,7 +350,7 @@
             this.activityMinsTextBox.SelectionStart = 0;
             this.activityMinsTextBox.ShortcutsEnabled = true;
             this.activityMinsTextBox.Size = new System.Drawing.Size(46, 23);
-            this.activityMinsTextBox.TabIndex = 33;
+            this.activityMinsTextBox.TabIndex = 18;
             this.activityMinsTextBox.UseSelectable = true;
             this.activityMinsTextBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.activityMinsTextBox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -423,31 +390,39 @@
             this.activitySecTextBox.SelectionStart = 0;
             this.activitySecTextBox.ShortcutsEnabled = true;
             this.activitySecTextBox.Size = new System.Drawing.Size(46, 23);
-            this.activitySecTextBox.TabIndex = 35;
+            this.activitySecTextBox.TabIndex = 19;
             this.activitySecTextBox.UseSelectable = true;
             this.activitySecTextBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.activitySecTextBox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // miLabel
+            // 
+            this.miLabel.AutoSize = true;
+            this.miLabel.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.miLabel.Location = new System.Drawing.Point(225, 247);
+            this.miLabel.Name = "miLabel";
+            this.miLabel.Size = new System.Drawing.Size(32, 25);
+            this.miLabel.TabIndex = 37;
+            this.miLabel.Text = "mi";
             // 
             // NewActivityForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(581, 613);
+            this.ClientSize = new System.Drawing.Size(553, 613);
+            this.Controls.Add(this.miLabel);
             this.Controls.Add(this.secLabel);
             this.Controls.Add(this.activitySecTextBox);
             this.Controls.Add(this.minLabel);
             this.Controls.Add(this.activityMinsTextBox);
             this.Controls.Add(this.hrLabel);
-            this.Controls.Add(this.testLabel1);
             this.Controls.Add(this.refreshButton);
             this.Controls.Add(this.manageActivityTypesButton);
             this.Controls.Add(this.cancelNewActivityButton);
             this.Controls.Add(this.addActivityButton);
             this.Controls.Add(this.notesTextBox);
             this.Controls.Add(this.activityNotesLabel);
-            this.Controls.Add(this.kmRadioButton);
-            this.Controls.Add(this.milesRadioButton);
             this.Controls.Add(this.distanceTextBox);
             this.Controls.Add(this.distanceLabel);
             this.Controls.Add(this.activityHourTextBox);
@@ -481,19 +456,17 @@
         private MetroFramework.Controls.MetroTextBox activityHourTextBox;
         private MetroFramework.Controls.MetroTextBox distanceTextBox;
         private MetroFramework.Controls.MetroLabel distanceLabel;
-        private MetroFramework.Controls.MetroRadioButton milesRadioButton;
-        private MetroFramework.Controls.MetroRadioButton kmRadioButton;
         private MetroFramework.Controls.MetroLabel activityNotesLabel;
         private MetroFramework.Controls.MetroTextBox notesTextBox;
         private MetroFramework.Controls.MetroButton addActivityButton;
         private MetroFramework.Controls.MetroButton cancelNewActivityButton;
         private MetroFramework.Controls.MetroButton manageActivityTypesButton;
         private MetroFramework.Controls.MetroButton refreshButton;
-        private MetroFramework.Controls.MetroLabel testLabel1;
         private MetroFramework.Controls.MetroLabel hrLabel;
         private MetroFramework.Controls.MetroLabel minLabel;
         private MetroFramework.Controls.MetroTextBox activityMinsTextBox;
         private MetroFramework.Controls.MetroLabel secLabel;
         private MetroFramework.Controls.MetroTextBox activitySecTextBox;
+        private MetroFramework.Controls.MetroLabel miLabel;
     }
 }

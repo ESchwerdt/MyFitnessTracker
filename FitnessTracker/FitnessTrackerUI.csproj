@@ -114,11 +114,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ActivitesListForm.cs">
+    <Compile Include="ActivitiesListForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ActivitesListForm.Designer.cs">
-      <DependentUpon>ActivitesListForm.cs</DependentUpon>
+    <Compile Include="ActivitiesListForm.Designer.cs">
+      <DependentUpon>ActivitiesListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditActivityForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditActivityForm.Designer.cs">
+      <DependentUpon>EditActivityForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ManageActivityTypesForm.cs">
       <SubType>Form</SubType>
@@ -152,8 +158,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="ActivitesListForm.resx">
-      <DependentUpon>ActivitesListForm.cs</DependentUpon>
+    <Compile Include="ViewActivityForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewActivityForm.Designer.cs">
+      <DependentUpon>ViewActivityForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ActivitiesListForm.resx">
+      <DependentUpon>ActivitiesListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditActivityForm.resx">
+      <DependentUpon>EditActivityForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -179,6 +194,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ViewActivityForm.resx">
+      <DependentUpon>ViewActivityForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

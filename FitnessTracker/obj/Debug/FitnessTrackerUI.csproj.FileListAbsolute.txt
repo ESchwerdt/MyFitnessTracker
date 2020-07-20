@@ -17,7 +17,6 @@ C:\Users\erics\Documents\Projects\Portfolio\FitnessTrackerWF\FitnessTrackerWF\Fi
 C:\Users\erics\Documents\Projects\Portfolio\FitnessTrackerWF\FitnessTrackerWF\FitnessTracker\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\erics\Documents\Projects\Portfolio\FitnessTrackerWF\FitnessTrackerWF\FitnessTracker\bin\Debug\EntityFramework.xml
 C:\Users\erics\Documents\Projects\Portfolio\FitnessTrackerWF\FitnessTrackerWF\FitnessTracker\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\erics\Documents\Projects\Portfolio\FitnessTrackerWF\FitnessTrackerWF\FitnessTracker\obj\Debug\FitnessTracker.ActivitesListForm.resources
 C:\Users\erics\Documents\Projects\Portfolio\FitnessTrackerWF\FitnessTrackerWF\FitnessTracker\bin\Debug\BouncyCastle.Crypto.dll
 C:\Users\erics\Documents\Projects\Portfolio\FitnessTrackerWF\FitnessTrackerWF\FitnessTracker\bin\Debug\Google.Protobuf.dll
 C:\Users\erics\Documents\Projects\Portfolio\FitnessTrackerWF\FitnessTrackerWF\FitnessTracker\bin\Debug\K4os.Compression.LZ4.dll
@@ -49,3 +48,6 @@ C:\Users\erics\Documents\Projects\Portfolio\FitnessTrackerWF\FitnessTrackerWF\Fi
 C:\Users\erics\Documents\Projects\Portfolio\FitnessTrackerWF\FitnessTrackerWF\FitnessTracker\obj\Debug\FitnessTracker.NewActivityForm.resources
 C:\Users\erics\Documents\Projects\Portfolio\FitnessTrackerWF\FitnessTrackerWF\FitnessTracker\obj\Debug\FitnessTracker.NewActivityTypeForm.resources
 C:\Users\erics\Documents\Projects\Portfolio\FitnessTrackerWF\FitnessTrackerWF\FitnessTracker\obj\Debug\FitnessTracker.ManageActivityTypesForm.resources
+C:\Users\erics\Documents\Projects\Portfolio\FitnessTrackerWF\FitnessTrackerWF\FitnessTracker\obj\Debug\FitnessTracker.ViewActivityForm.resources
+C:\Users\erics\Documents\Projects\Portfolio\FitnessTrackerWF\FitnessTrackerWF\FitnessTracker\obj\Debug\FitnessTracker.ActivitiesListForm.resources
+C:\Users\erics\Documents\Projects\Portfolio\FitnessTrackerWF\FitnessTrackerWF\FitnessTracker\obj\Debug\FitnessTracker.EditActivityForm.resources

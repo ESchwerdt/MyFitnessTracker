@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,11 +31,40 @@ namespace FitnessTracker
             activityTypeListBox.DisplayMember = "ActivityName";
         }
 
+        private bool ValidateForm()
+        {
+            var validated = true;
+
+            var context = new FitnessContext();
+            var availableActivities = context.ActivityTypes.ToList();
+
+            List<string> aList = new List<string>();
+
+            foreach(var a in availableActivities)
+            {
+                aList.Add(a.ActivityName);
+            }
+
+            if (aList.Contains(addActivityNameTextBox.Text))
+            {
+                MessageBox.Show("This activity type already exists.");
+                validated = false;
+            }
+
+            if(addActivityNameTextBox.Text.Length < 1)
+            {
+                MessageBox.Show("Please enter a valid activity name.");
+                validated = false;
+            }
+
+            return validated;
+        }
+        
         private void addActivityTypeButton_Click(object sender, EventArgs e)
         {
             var context = new FitnessContext();
-            
-            if(addActivityNameTextBox.Text.Length > 0)
+
+            if (ValidateForm())
             {
 
                 var newActivity = new ActivityType();
@@ -44,10 +74,7 @@ namespace FitnessTracker
                 context.SaveChanges();
                 WireUpList();
             }
-            else
-            {
-                MessageBox.Show("Please enter a valid activity type name and try again!");
-            }
+
         }
 
         private void doneButton_Click(object sender, EventArgs e)

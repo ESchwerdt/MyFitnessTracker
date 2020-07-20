@@ -37,3 +37,4 @@ C:\Users\erics\Documents\Projects\Portfolio\FitnessTrackerWF\FitnessTrackerWF\Fi
 C:\Users\erics\Documents\Projects\Portfolio\FitnessTrackerWF\FitnessTrackerWF\FitnessLibrary\obj\Debug\FitnessLibrary.csprojAssemblyReference.cache
 C:\Users\erics\Documents\Projects\Portfolio\FitnessTrackerWF\FitnessTrackerWF\FitnessLibrary\obj\Debug\FitnessLibrary.Migrations.InitialModel.resources
 C:\Users\erics\Documents\Projects\Portfolio\FitnessTrackerWF\FitnessTrackerWF\FitnessLibrary\obj\Debug\FitnessLibrary.csproj.GenerateResource.cache
+C:\Users\erics\Documents\Projects\Portfolio\FitnessTrackerWF\FitnessTrackerWF\FitnessLibrary\obj\Debug\FitnessLibrary.Migrations.UpdateDistanceField.resources

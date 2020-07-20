@@ -15,15 +15,16 @@ namespace FitnessTracker
 {
     public partial class NewActivityForm : Form
     {
-        private string _user;
+        public User user;
+        private string _username;
         private TimeSpan _duration; 
 
         public NewActivityForm(User user)
         {
             InitializeComponent();
             WireActivityTypeList();
-            
-            _user = user.Username;
+
+            _username = user.Username;
         }
 
         /// <summary>
@@ -43,14 +44,33 @@ namespace FitnessTracker
         {
             bool validated = true;
 
-            //if(!(int.TryParse(ac)))
+            if(activityTitleTextBox.Text.Length < 1)
+            {
+                validated = false;
+                MessageBox.Show("Please enter a title for this workout");
+            }
 
-            //var durationValue = activityDurationTextBox.Text;
-            //var durationTest = durationValue.Split(':');
-            //if (durationTest.Length.Equals(3))
-            //{
-            //    _duration = TimeSpan.Parse(durationValue);
-            //}
+            if(activityTypeDropDown.SelectedIndex < 0)
+            {
+                validated = false;
+                MessageBox.Show("Please select a valid activity type");
+            }
+
+            if(string.IsNullOrWhiteSpace(activityHourTextBox.Text) 
+                && string.IsNullOrWhiteSpace(activityMinsTextBox.Text) 
+                && string.IsNullOrWhiteSpace(activitySecTextBox.Text))
+            {
+                validated = false;
+                MessageBox.Show("Please enter a duration for this workout");
+            }
+            
+            if(!int.TryParse(activityHourTextBox.Text, out int durationHrs) 
+                && !int.TryParse(activityMinsTextBox.Text, out int durationMins)
+                && !int.TryParse(activitySecTextBox.Text, out int durationSec))
+            {
+                validated = false;
+                MessageBox.Show("Please enter a valid duration time value");
+            }
 
 
             return validated;
@@ -58,8 +78,8 @@ namespace FitnessTracker
         
         private void addActivityButton_Click(object sender, EventArgs e)
         {
-            //TODO Add form validation for this input data!
-            //In validation, just check to make sure each hr/min/sec is either null or an integer
+
+            //Parse duration into a timespan variable
 
             int durationHrs = 0;
             int durationMins = 0;
@@ -80,23 +100,33 @@ namespace FitnessTracker
 
             _duration = new TimeSpan(durationHrs, durationMins, durationSecs);
 
+
             var context = new FitnessContext();
 
+            var currentUser = context.Users.Single(u => u.Username == _username);
 
-            var currentUser = context.Users.Single(u => u.Username == _user);
-
-            //var selectedActivityType = (ActivityType) activityTypeDropDown.SelectedItem;
             var selectedActivityType = activityTypeDropDown.SelectedItem as ActivityType;
             var selectedActivityName = selectedActivityType.ActivityName.ToString();
             var currentActivityType = context.ActivityTypes.Single(t => t.ActivityName == selectedActivityName);
+
+            string notes = notesTextBox.Text.Replace(Environment.NewLine,"~");
+            
+            
+            double distance = 0;
+
+            if (double.TryParse(distanceTextBox.Text, out distance))
+            {
+                distance = double.Parse(distanceTextBox.Text);
+            }
+           
 
             var newActivity = new Activity {
                 Title = activityTitleTextBox.Text,
                 ActivityType = currentActivityType,
                 ActivityStart = dateDateTimeChooser.Value,
                 ActivityDuration = _duration,
-                ActivityDistance = Convert.ToDouble(distanceTextBox.Text),
-                ActivityNotes = notesTextBox.Text,
+                ActivityDistance = distance,
+                ActivityNotes = notes,
                 User = currentUser
             };
 
@@ -105,6 +135,7 @@ namespace FitnessTracker
 
             MessageBox.Show("Activity Successfully Added!");
             this.Close();
+
         }
 
         private void cancelNewActivityButton_Click(object sender, EventArgs e)
