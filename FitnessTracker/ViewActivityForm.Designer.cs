@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewActivityForm));
             this.titleLabel = new MetroFramework.Controls.MetroLabel();
             this.dateLabel = new MetroFramework.Controls.MetroLabel();
             this.durationLabel = new MetroFramework.Controls.MetroLabel();
@@ -53,7 +54,7 @@
             this.dateLabel.FontSize = MetroFramework.MetroLabelSize.Small;
             this.dateLabel.Location = new System.Drawing.Point(39, 64);
             this.dateLabel.Name = "dateLabel";
-            this.dateLabel.Size = new System.Drawing.Size(90, 20);
+            this.dateLabel.Size = new System.Drawing.Size(80, 17);
             this.dateLabel.TabIndex = 1;
             this.dateLabel.Text = "workout date";
             // 
@@ -127,6 +128,7 @@
             this.Controls.Add(this.dateLabel);
             this.Controls.Add(this.titleLabel);
             this.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ViewActivityForm";
             this.Text = "Workout Details";

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageActivityTypesForm));
             this.headerLabel = new System.Windows.Forms.Label();
             this.activityTypeListBox = new System.Windows.Forms.ListBox();
             this.addActivityTypeLabel = new MetroFramework.Controls.MetroLabel();
@@ -155,6 +156,7 @@
             this.Controls.Add(this.headerLabel);
             this.Controls.Add(this.addActivityTypeGroupBox);
             this.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ManageActivityTypesForm";
             this.Text = "Manage Activity Types";

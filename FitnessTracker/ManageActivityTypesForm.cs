@@ -20,7 +20,7 @@ namespace FitnessTracker
         public ManageActivityTypesForm()
         {
             InitializeComponent();
-            var _context = new FitnessContext();
+            _context = new FitnessContext();
             WireUpList();
         }
 

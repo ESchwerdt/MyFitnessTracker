@@ -42,6 +42,9 @@ namespace FitnessLibrary.DataAccess
         {
             var context = new FitnessContext();
 
+            //Display native SQL query in console for debugging purposes
+            context.Database.Log = Console.Write;
+
             var userActivity = context.Activities
                 .Include("ActivityType")
                 .Where(a => a.Id == actId)

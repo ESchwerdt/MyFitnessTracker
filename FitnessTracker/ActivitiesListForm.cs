@@ -29,7 +29,6 @@ namespace FitnessTracker
         private async Task WireActivityList()
         {
 
-            //Set month
             var currentMonth = DateTime.Now.ToString("MMMM");
             monthValueLabel.Text = currentMonth;
 
@@ -37,7 +36,7 @@ namespace FitnessTracker
             double? _monthDist = 0;
             TimeSpan _monthDuration = new TimeSpan();
 
-            IList<Activity> userActivities = (IList<Activity>) await Queries.GetActivitiesAsync(_user);
+            IList<Activity> userActivities = await Queries.GetActivitiesAsync(_user);
 
             foreach (Activity a in userActivities)
             {
@@ -80,13 +79,16 @@ namespace FitnessTracker
 
         private void viewSelButton_Click(object sender, EventArgs e)
         {
-            var selAct = activitiesListView.SelectedItems[0];
-            var actId = int.Parse(selAct.ToolTipText);
+            if (activitiesListView.SelectedItems.Count > 0)
+            {
+                var selAct = activitiesListView.SelectedItems[0];
+                var actId = int.Parse(selAct.ToolTipText);
 
-            var activity = Queries.GetActivity(actId);
+                var activity = Queries.GetActivity(actId);
 
-            Form viewActivity = new ViewActivityForm(activity);
-            viewActivity.Show();
+                Form viewActivity = new ViewActivityForm(activity);
+                viewActivity.Show();
+            }
         }
 
 
@@ -105,14 +107,16 @@ namespace FitnessTracker
 
         private void editButton_Click(object sender, EventArgs e)
         {
-            var selAct = activitiesListView.SelectedItems[0];
-            var actId = int.Parse(selAct.ToolTipText);
+            if (activitiesListView.SelectedItems.Count > 0)
+            {
+                var selAct = activitiesListView.SelectedItems[0];
+                var actId = int.Parse(selAct.ToolTipText);
 
-            var activity = Queries.GetActivity(actId);
+                var activity = Queries.GetActivity(actId);
 
-            Form editActivityForm = new EditActivityForm(activity);
-            editActivityForm.Show();
-
+                Form editActivityForm = new EditActivityForm(activity);
+                editActivityForm.Show();
+            }
         }
 
     }
